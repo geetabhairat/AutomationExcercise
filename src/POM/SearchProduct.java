@@ -10,17 +10,22 @@ public class SearchProduct {
 	public SearchProduct(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	By Search_product= By.id("search_product");
+	
+	By Submit_search= By.id("submit_search");
+	
+	By Searched_Products= By.xpath("//h2[text()='Searched Products']");
 
 	public void Enter_Product_Name_In_Search_Input(){
-		driver.findElement(By.id("search_product")).sendKeys("Top");;
+		driver.findElement(Search_product).sendKeys("Top");;
 	}
 	public void Click_Search_Button(){
-		driver.findElement(By.id("submit_search")).click();
+		driver.findElement(Submit_search).click();
 	}
 
 	public boolean Verify_Searched_Products() throws InterruptedException {
-		Thread.sleep(1000);
-		return driver.findElement(By.xpath("//h2[text()='Searched Products']")).isDisplayed();
+	return driver.findElement(Searched_Products).isDisplayed();
 	}
 
 }

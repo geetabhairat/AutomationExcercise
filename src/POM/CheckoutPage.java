@@ -9,21 +9,29 @@ public class CheckoutPage {
 	public CheckoutPage(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	By Address_Details= By.xpath("//h2[text()='Address Details']");
+	
+	By Review_Your_Order= By.xpath("//h2[text()='Review Your Order']");
+	
+	By message= By.xpath("//textarea[@name='message']");
+	
+	By payment= By.xpath("//a[@href='/payment']");
 
 	public boolean Verify_Address_Details() {
-		return driver.findElement(By.xpath("//h2[text()='Address Details']")).isDisplayed();
+		return driver.findElement(Address_Details).isDisplayed();
 	}
 
 	public boolean Verify_Review_YourOrder() {
-		return driver.findElement(By.xpath("//h2[text()='Review Your Order']")).isDisplayed();
+		return driver.findElement(Review_Your_Order).isDisplayed();
 	}
 
 	public void Enter_Description_In_Comment_Text_Area() {
-		driver.findElement(By.xpath("//textarea[@name='message']")).sendKeys("All is ok");
+		driver.findElement(message).sendKeys("All is ok");
 	}
 
 	public void Click_Place_Order() {
-		driver.findElement(By.xpath("//a[@href='/payment']")).click();
+		driver.findElement(payment).click();
 	}
 	
 	public boolean Verify_DELIVERY_Address_Details(String address) {

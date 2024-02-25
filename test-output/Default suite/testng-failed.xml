@@ -5,7 +5,11 @@
     <classes>
       <class name="Test.A">
         <methods>
+          <include name="Verify_All_Products_And_Product_Detail_Page"/>
+          <include name="Verify_Address_Details_In_Checkout_Page"/>
+          <include name="Search_Products_And_Verify_Cart_After_Login"/>
           <include name="Remove_Products_From_Cart"/>
+          <include name="Download_Invoice_After_Purchase_Order"/>
           <include name="Verify_Product_Quantity_In_Cart"/>
         </methods>
       </class> <!-- Test.A -->

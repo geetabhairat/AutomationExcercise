@@ -9,46 +9,60 @@ public class ViewCartPage {
 	public ViewCartPage(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	By Subscription= By.xpath("//h2[text()='Subscription']");
+	
+	By Email= By.xpath("//input[@type='email']");
+	
+	By Submit= By.xpath("//button[@type='submit']");
+	
+	By Proceed_To_Checkout= By.xpath("//a[text()='Proceed To Checkout']");
+	
+	By Register= By.xpath("//a/u[text()='Register / Login']");
+	
+	By products= By.xpath("//a[@href='/products']");
+	
+	By cart_quantity_delete= By.xpath("//a[@class='cart_quantity_delete']");
+	
+	By Cart_is_empty= By.xpath("//p//b[text()='Cart is empty!']");
+	
+	By Product_Available_In_table= By.xpath("//table[@id='cart_info_table']/tbody/tr[1]");
 
 	public boolean Verify_Text_Subscription() {
-		return driver.findElement(By.xpath("//h2[text()='Subscription']")).isDisplayed();
+		return driver.findElement(Subscription).isDisplayed();
 	}
 
 	public void Enter_Email_Address(String email) {
-		driver.findElement(By.xpath("//input[@type='email']")).sendKeys(email);
+		driver.findElement(Email).sendKeys(email);
 	}
 
 	public void Click_On_Arrow_Button() {
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		driver.findElement(Submit).click();
 
 	}
 
 	public void Click_Processed_to_Checkout_Button() throws InterruptedException {
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//a[text()='Proceed To Checkout']")).click();
+		driver.findElement(Proceed_To_Checkout).click();
 	}
 
 	public void Click_Register_Login_Button() throws InterruptedException {
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//a/u[text()='Register / Login']")).click();
+		driver.findElement(Register).click();
 	}
 
 	public void Click_On_Here_Option() {
-		driver.findElement(By.xpath("//a[@href='/products']")).click();
+		driver.findElement(products).click();
 	}
 	
 	public void Click_On_Remove_Product_From_Cart() {
-		driver.findElement(By.xpath("//a[@class='cart_quantity_delete']")).click();
+		driver.findElement(By.xpath("cart_quantity_delete")).click();
 	}
 	
 	public boolean Verify_Cart_Is_Empty() throws InterruptedException {
-		Thread.sleep(2000);
-		return driver.findElement(By.xpath("//p//b[text()='Cart is empty!']")).isDisplayed();
+		return driver.findElement(Cart_is_empty).isDisplayed();
 	}
 	
 	public boolean Verify_Product_Available_In_table() throws InterruptedException {
-		Thread.sleep(2000);
-		return driver.findElement(By.xpath("//table[@id='cart_info_table']/tbody/tr[1]")).isDisplayed();
+		return driver.findElement(Product_Available_In_table).isDisplayed();
 	}
 
 }

@@ -8,7 +8,11 @@ public class TestcasesPage {
 	public TestcasesPage(WebDriver driver) {
 		this.driver=driver;
 	}
+	
+	By Test_Cases= By.xpath("//a[text()=' Test Cases']");
+
+	
 	public void Click_On_Testcase_Button(){
-		driver.findElement(By.xpath("//a[text()=' Test Cases']")).click();
+		driver.findElement(Test_Cases).click();
 	}
 }

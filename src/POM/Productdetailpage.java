@@ -11,10 +11,39 @@ public class Productdetailpage {
 	public Productdetailpage(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	By All_Products= By.xpath("//h2[text()='All Products']");
+
+	By Product_Name= By.xpath("//h2[text()='Blue Top']");
+	
+	By Category= By.xpath("//p[text()='Category: Women > Tops']");
+	
+	By Price= By.xpath("//span[text()='Rs. 500']");
+
+	By Availability= By.xpath("//b[text()='Availability:']");
+	
+	By Condition= By.xpath("//b[text()='Condition:']");
+
+	By Brand= By.xpath("//b[text()='Brand:']");
+	
+	By Button= By.xpath("//button[@type='button']");
+	
+	By View_Cart= By.xpath("//p//u[text()='View Cart']");
+	
+	By Quantity= By.xpath("//input[@id='quantity']");
+
+	By Write_Your_Review= By.xpath("//ul/li/a[text()='Write Your Review']");
+	
+	By Name= By.id("name");
+	
+	By email= By.id("email");
+	
+	By Review= By.id("review");
+
 
 	public void Verify_User_Is_Navigated_To_ALL_ProductPage_Successfully() throws InterruptedException {
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//h2[text()='All Products']")).isDisplayed();
+		driver.findElement(All_Products).isDisplayed();
 	}
 
 	public void Click_On_View_Product() {
@@ -24,42 +53,42 @@ public class Productdetailpage {
 	}
 
 	public boolean verify_Product_Name() {
-		return driver.findElement(By.xpath("//h2[text()='Blue Top']")).isDisplayed();
+		return driver.findElement(Product_Name).isDisplayed();
 	}
 
 	public boolean verify_Category() {
-		return driver.findElement(By.xpath("//p[text()='Category: Women > Tops']")).isDisplayed();
+		return driver.findElement(Category).isDisplayed();
 	}
 
 	public boolean verify_Price() {
-		return driver.findElement(By.xpath("//span[text()='Rs. 500']")).isDisplayed();
+		return driver.findElement(Price).isDisplayed();
 	}
 
 	public boolean verify_Avaibility() {
-		return driver.findElement(By.xpath("//b[text()='Availability:']")).isDisplayed();
+		return driver.findElement(Availability).isDisplayed();
 	}
 
 	public boolean verify_Condition() {
-		return driver.findElement(By.xpath("//b[text()='Condition:']")).isDisplayed();
+		return driver.findElement(Condition).isDisplayed();
 	}
 
 	public boolean verify_Brand() {
-		return driver.findElement(By.xpath("//b[text()='Brand:']")).isDisplayed();
+		return driver.findElement(Brand).isDisplayed();
 	}
 
 	public void Click_add_TO_Cart_Button() throws InterruptedException {
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//button[@type='button']")).click();
+		driver.findElement(Button).click();
 	}
 
 	public void Click_On_View_Cart() throws InterruptedException {
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//p//u[text()='View Cart']")).click();
+		driver.findElement(View_Cart).click();
 	}
 	
 	public void add_number_Of_Quantity(String number) {
-		driver.findElement(By.xpath("//input[@id='quantity']")).clear();
-		driver.findElement(By.xpath("//input[@id='quantity']")).sendKeys(number);
+		driver.findElement(Quantity).clear();
+		driver.findElement(Quantity).sendKeys(number);
 	}
 	
 	public boolean verify_Quantity(String Number) throws InterruptedException {
@@ -69,22 +98,22 @@ public class Productdetailpage {
 	
 	public boolean verify_Write_Your_Review() throws InterruptedException {
 		Thread.sleep(2000);
-		return driver.findElement(By.xpath("//ul/li/a[text()='Write Your Review']")).isDisplayed();
+		return driver.findElement(Write_Your_Review).isDisplayed();
 	}
 	
 	public void enter_Name(String name){
-		driver.findElement(By.id("name")).sendKeys(name);
+		driver.findElement(Name).sendKeys(name);
 	}
 	
 	public void enter_Email(String mail){
-		driver.findElement(By.id("email")).sendKeys(mail);
+		driver.findElement(email).sendKeys(mail);
 	}
 	
 	public void enter_Review(String review){
-		driver.findElement(By.id("review")).sendKeys(review);
+		driver.findElement(email).sendKeys(review);
 	}
 	
 	public void Click_On_Submit() {
-		driver.findElement(By.id("button-review")).click();
+		driver.findElement(Review).click();
 	}
 }

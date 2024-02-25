@@ -9,8 +9,10 @@ public class DeleatedAccountpage {
 		this.driver=driver;
 	}
 	
+	By Continue= By.xpath("//a[text()='Continue']");
+	
 	public void Countinue_Button(){
-		driver.findElement(By.xpath("//a[text()='Continue']")).click();
+		driver.findElement(Continue).click();
 	}
 
 }

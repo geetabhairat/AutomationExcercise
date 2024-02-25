@@ -6,6 +6,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -50,6 +51,7 @@ public class A extends Applicationbasepage {
 		opt.addArguments("--disable-save-password-bubble");
 		driver = new ChromeDriver(opt);
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Thread.sleep(10000);
 		driver.get("http://automationexercise.com");
 		String parent = driver.getWindowHandle();
@@ -591,7 +593,6 @@ public class A extends Applicationbasepage {
 			JavascriptExecutor executor = (JavascriptExecutor) driver;
 			executor.executeScript("arguments[0].click();", element);
 		}
-		//Thread.sleep(5000);
 		productdetailpage.Click_On_View_Cart();
 		Assert.assertTrue(viewcartPage.Verify_Product_Available_In_table());
 	}
@@ -710,7 +711,6 @@ public class A extends Applicationbasepage {
 	public void Verify_Scroll_Up_Using_Arrow_Button_And_Scroll_Down_Functionality() throws InterruptedException {
 		driver.get("https://automationexercise.com/");
 		Actions a = new Actions(driver);
-		//Thread.sleep(3000);
 		a.scrollToElement(driver.findElement(By.id("susbscribe_email"))).build().perform();
 		Assert.assertTrue(homepage.Verify_Tet_Avaialble("Subscription"));
 		homepage.Click_On_Move_To_Top_Button();
@@ -721,7 +721,6 @@ public class A extends Applicationbasepage {
 	public void Verify_Scroll_Up_Without_Arrow_Button_And_Scroll_Down_Functionality() throws InterruptedException {
 		driver.get("https://automationexercise.com/");
 		Actions a = new Actions(driver);
-		//Thread.sleep(3000);
 		a.scrollToElement(driver.findElement(By.id("susbscribe_email"))).build().perform();
 		Assert.assertTrue(homepage.Verify_Tet_Avaialble("Subscription"));
 		a.scrollToElement(driver.findElement(By.xpath("//a[text()=' Home']"))).build().perform();
